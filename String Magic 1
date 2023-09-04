@@ -1,0 +1,52 @@
+/*String Magic 1
+Program Description :
+Given a String with Numbers and some characters. You Need to Add all numbers in the string and print the total sum.
+
+Note:
+
+example: In code123mind67, we have to take continuous numbers as 123 and 67, but not 1,2,3,6,7. Therefore total sum is 123+67=190.
+
+Input Format :
+A single line contains the string S.
+
+Output Format :
+Print the sum of continuous numbers in string.
+
+Input :
+fcggyuh67cgh33
+
+
+Output :
+100*/
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    int cn=0;
+    bool innumber=false;
+    int sumi=0;
+    for(char c :s)
+    {
+        if(isdigit(c))
+        {
+            cn=cn*10+(c-'0');
+            innumber=true;
+        }
+        else
+        {
+            if(innumber)
+            {
+                sumi+=cn;
+                cn=0;
+                innumber=false;
+            }
+        }
+    }
+    if(innumber)
+    {
+        sumi+=cn;
+    }
+    cout<<sumi;
+}
