@@ -1,0 +1,38 @@
+/*Maximum Number
+Program Description :
+You are given a positive integer num consisting only of digits 6 and 9.
+
+Return the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).
+ 
+
+Input Format :
+The first line of each test case contains a single integer.
+
+Output Format :
+print the the maximum number you can get by changing at most one digit (6 becomes 9, and 9 becomes 6).
+
+Input :
+9669
+
+
+Output :
+9969*/
+
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+    cin>>s;
+    bool change=false;
+    for(char &c:s)
+    {
+        if(c=='6' && !change)
+        {
+            c='9';
+            change=true;
+        }
+    }
+    cout<<s;
+}
+
