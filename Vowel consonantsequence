@@ -1,0 +1,21 @@
+Vowel Consonant Seqeuence
+Program Description :
+Sravanthi and Simran two friends. One day Sravanthi given a String to Simarn and asked her to generate the vowelconsonant sequence from the given String as follows all consecutive consonants are replaced by a single letter 'C' and all consecutive vowels are repalced by a single character 'V', such that output String does not have two or more consecutive 'C' or 'V'. So Simran is poor in String concept. Can you help her to complete this task. 
+
+Note:
+1) Input String contains only lower case English Alphabets.
+2) The vowels in the English alphabets are 'a','e','i','o','u'. All the other alphabets are consonants.
+3) Output String should have only uppercase letters 'C' andd 'V'.
+
+Input Format :
+A single line contains a string S.
+
+Output Format :
+Print the output based on the given input string.
+
+Input :
+whereabouts
+
+
+Output :
+CVCVCVC
