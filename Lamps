@@ -1,0 +1,35 @@
+/*Lamps
+Program Description :
+An electronics shop sells red and blue lamps. A red lamp costs X rupees and a blue lamp costs Y rupees.
+
+Amar is going to buy exactly N lamps from this shop. Find the minimum amount of money Amar needs to pay such that at least K of the lamps bought are red.
+
+Input Format :
+A single line containing four space-separated integers N, K, X, Y.
+
+Output Format :
+The minimum amount of money Amar needs to pay in order to buy N lamps such that at least K of the lamps bought are red.
+
+Input :
+2 2 5 1
+
+
+Output :
+10
+*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N, K, X, Y;
+    cin >> N >> K >> X >> Y;
+
+    if (K >= N) {
+        cout << N * X << endl;  // If K is greater than or equal to N, buy all lamps as red
+    } else {
+        cout << K * X + (N - K) *min(X,Y)<< endl;  // Buy K lamps as red and (N - K) lamps as blue
+    }
+
+    return 0;
+}
