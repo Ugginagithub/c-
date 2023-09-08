@@ -1,0 +1,22 @@
+Second Largest
+Program Description :
+Given an array Arr of size N, print second largest element from an array.
+
+Input Format :
+The first line contains an integer N.
+
+The second line contains the N length of the array. 
+
+Output Format :
+Print the second largest element in the given array.
+
+If not print -1.
+
+Input :
+6
+
+12 35 1 10 34 1
+
+
+Output :
+34
