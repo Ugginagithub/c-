@@ -1,0 +1,42 @@
+/*Count Divisors
+Program Description :
+Given n you have to find the sum of the count of divisors from 1 to n.
+
+Input Format :
+The first line contains an Integer N.
+ 
+
+Output Format :
+Print the sum of the count of divisors from 1 to N.
+
+Input :
+2
+
+
+Output :
+3*/
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    long long sum=0;
+    for(int i=0;i<=n;i++)
+    {
+        int count=0;
+        for(int j=i;j*j<=i;j++)
+        {
+            if(i%j==0)
+            {
+                count++;
+            }
+            if(i/j!=j)
+            {
+                count++;
+            }
+        }
+        sum+=count;
+    }
+    cout<<sum<<endl;
+}
