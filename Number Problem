@@ -1,0 +1,51 @@
+/*Number Problem
+Program Description :
+You are given two integers a and b.
+
+In one move, you can choose some integer k from 1 to 10 and add it to a or subtract it from a. In other words, you choose an integer k∈[1;10] and perform a=a+k or a=a−k. You may use different values of k in different moves.
+
+Your task is to find the minimum number of moves required to obtain b from a.
+
+Note: Check out the Sample I/O for more clarity.
+
+Input Format :
+The only line of input contains two integers a and b.
+
+Output Format :
+Print the answer: the minimum number of moves required to obtain b from a.
+
+Input :
+5 5
+
+
+Output :
+0
+
+
+Constraints :
+1 ≤ a, b ≤ 1000000000*/
+
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b;
+    cin >> a >> b;
+
+    int diff = abs(a - b); // Calculate the absolute difference
+
+    int moves = diff / 10; // Find how many 10s can be used
+    diff %= 10; // Find the remaining difference
+
+    if (diff > 0) {
+        moves++; // If there's a remaining difference, one more move is needed
+    }
+
+    cout << moves << endl;
+
+    return 0;
+}
+
+
+
+
