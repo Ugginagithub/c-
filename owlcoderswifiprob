@@ -1,0 +1,69 @@
+/*Owl Coders Wi-Fi Problem
+Program Description :
+Technical Hub organized Owl coder’s program, Where all students are assigned rooms to stay. There are N rooms in the Hostel ( In Straight line) . If there is a wifi in the ith room the room will be represented as 1 and if there is no wifi in the room it will be represented as 0. Each wifi has X range. (if a ith room has wifi then wifi can be shared with X rooms on its left as well as right)
+
+Now you need to find whether students in all rooms can use wifi or not.
+
+Input Format :
+First line contains two integers N and X where N represents Number of rooms in hostel and X represents the range of wifi.
+
+Second line contains a binary string S of 0’s and 1’s.
+
+Output Format :
+Print 1 if students in all rooms can use wifi other wise 0.
+
+Input :
+3 0
+
+“010”
+
+
+Output :
+0*/
+
+#include <iostream>
+#include <string>
+#include <vector>
+
+using namespace std;
+
+int main() {
+    int N, X;
+    cin >> N >> X;
+
+    string S;
+    cin >> S;
+
+    // Initialize variables to keep track of coverage.
+    vector<int> leftCoverage(N, 0);
+    vector<int> rightCoverage(N, 0);
+
+    // Calculate left and right coverage for each room.
+    for (int i = 0; i < N; i++) {
+        if (S[i] == '1') {
+            for (int j = i - X; j <= i + X; j++) {
+                if (j >= 0 && j < N) {
+                    leftCoverage[j] = 1;
+                    rightCoverage[j] = 1;
+                }
+            }
+        }
+    }
+
+    // Check if all rooms are covered.
+    for (int i = 0; i < N; i++) {
+        if (S[i] == '0' && leftCoverage[i] == 0 && rightCoverage[i] == 0) {
+            cout << "0" << endl; // Not all students can use Wi-Fi.
+            return 0;
+        }
+    }
+
+    cout << "1" << endl; // All students can use Wi-Fi.
+
+    return 0;
+}
+
+
+
+
+
