@@ -1,0 +1,43 @@
+/*Least Common Multiple
+Program Description :
+Find out the LCM of two given numbers. 
+
+Input Format :
+A single line contains 2 space-separated integers A and B.
+
+Output Format :
+Print the LCM of the given two numbers.
+
+Input :
+12 24
+
+
+Output :
+24*/
+
+#include <iostream>
+#include <algorithm>
+
+using namespace std;
+
+// Function to calculate GCD using Euclidean algorithm
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int A, B;
+    cin >> A >> B;
+
+    // Calculate LCM using the formula
+    int lcm = (A * B) / gcd(A, B);
+
+    cout << lcm << endl;
+
+    return 0;
+}
