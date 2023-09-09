@@ -1,0 +1,57 @@
+/*Reversing The Equation
+Program Description :
+Given a mathematical equation that contains only numbers and +, -, *, /. Print the equation in reverse, such that the equation is reversed, but the numbers remain the same.
+It is guaranteed that the given equation is valid, and there are no leading zeros.
+
+Input Format :
+The first line contains the string s.
+
+Output Format :
+Reverse the given equation string.
+
+Input :
+5+2*56-2/4
+
+
+Output :
+4/2-56*2+5*/
+
+#include<bits/stdc++.h>
+using namespace std;
+bool isoperator(char c)
+{
+    return c=='+'||c=='-'||c=='*'||c=='/';
+}
+int main()
+{
+    string e;
+    cin>>e;
+
+    stack<string> numbers;
+    stack<char> operators;//here operators spelling is important
+    for(int i=0;i<e.length();i++)
+    {
+        if(isdigit(e[i])){
+            string num="";
+            while(i<e.length() && isdigit(e[i])){
+                num+=e[i];
+                i++;
+            }
+            numbers.push(num);
+            i--;
+        }
+        else if(isoperator(e[i]))
+        {
+            operators.push(e[i]);
+        }
+    }
+    string re=numbers.top();//reversed equation.
+    numbers.pop();
+    while(!operators.empty()){
+        re+=operators.top();
+        operators.pop();
+        re+=numbers.top();
+        numbers.pop();
+    }
+    cout<<re<<endl;
+}
