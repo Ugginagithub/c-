@@ -1,0 +1,129 @@
+/*Encode The Binary
+Program Description :
+For encoding an even-length binary string into a sequence of A, T, C, and G, we iterate from left to right and replace the characters as follows:
+
+00 is replaced with A
+
+01 is replaced with T
+
+10 is replaced with C
+
+11 is replaced with G
+
+Given a binary string S of length N (N is even), find the encoded sequence.
+
+Input Format :
+First line will contain T, number of test cases. Then the test cases follow.
+
+Each test case contains two lines of input.
+
+First line contains a single integer N, the length of the sequence.
+
+Second line contains binary string S of length N.
+
+Output Format :
+For each test case, output in a single line the encoded sequence.
+
+Input :
+4
+
+2
+
+00
+
+4
+
+0011
+
+6
+
+101010
+
+4
+
+1001
+
+
+Output :
+AG
+
+CCC
+
+CT*/
+
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+
+        string binaryString;
+        cin >> binaryString;
+
+        string encodedSequence;
+
+        for (int i = 0; i < N; i += 2) {
+            if (binaryString[i] == '0' && binaryString[i + 1] == '0') {
+                encodedSequence += 'A';
+            } else if (binaryString[i] == '0' && binaryString[i + 1] == '1') {
+                encodedSequence += 'T';
+            } else if (binaryString[i] == '1' && binaryString[i + 1] == '0') {
+                encodedSequence += 'C';
+            } else if (binaryString[i] == '1' && binaryString[i + 1] == '1') {
+                encodedSequence += 'G';
+            }
+        }
+
+        cout << encodedSequence << endl;
+    }
+
+    return 0;
+}
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main() {
+    int T;
+    cin >> T;
+
+    while (T--) {
+        int N;
+        cin >> N;
+
+        string binaryString;
+        cin >> binaryString;
+
+        string encodedSequence;
+
+        for (int i = 0; i < N; i += 2) {
+            if (binaryString[i] == '0' && binaryString[i + 1] == '0') {
+                encodedSequence += 'A';
+            } else if (binaryString[i] == '0' && binaryString[i + 1] == '1') {
+                encodedSequence += 'T';
+            } else if (binaryString[i] == '1' && binaryString[i + 1] == '0') {
+                encodedSequence += 'C';
+            } else if (binaryString[i] == '1' && binaryString[i + 1] == '1') {
+                encodedSequence += 'G';
+            }
+        }
+
+        cout << encodedSequence << endl;
+    }
+
+    return 0;
+}
+
+
+
+
+
+
