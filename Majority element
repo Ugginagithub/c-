@@ -1,0 +1,63 @@
+/*Majority element
+Program Description :
+Given an array A of N elements. Find the majority element in the array. 
+
+A majority element in an array A of size N is an element that appears more than N/2 times in the array.
+
+If no such element print -1.
+
+Input Format :
+The first line contains the length of the array(N).
+
+The second line contains N separated elements.
+
+Output Format :
+A single line contains majority element.
+
+Input :
+N = 5
+
+A = 1 2 3 1 2 
+
+
+Output :
+-1 
+
+
+Constraints :
+1 <= N <= 104*/
+
+
+#include <iostream>
+#include <vector>
+#include <unordered_map>
+using namespace std;
+
+int findMajorityElement(vector<int>& nums) {
+    unordered_map<int, int> freq;
+
+    for (int num : nums) {
+        freq[num]++;
+        if (freq[num] > nums.size() / 2) {
+            return num;
+        }
+    }
+
+    return -1; // No majority element found
+}
+
+int main() {
+    int N;
+    cin >> N;
+    
+    vector<int> A(N);
+    for (int i = 0; i < N; i++) {
+        cin >> A[i];
+    }
+
+    int majorityElement = findMajorityElement(A);
+
+    cout << majorityElement << endl;
+
+    return 0;
+}
