@@ -1,0 +1,53 @@
+/*Count Digits
+Program Description :
+Meet Ashok, a passionate individual with a deep fascination for numbers and their intricate properties. Driven by his curiosity, Ashok embarked on a unique journey of numerical exploration. In his quest, he encountered an intriguing task: to meticulously count the digits within a given number that possess the remarkable quality of evenly dividing the number itself.
+
+Here's a glimpse into Ashok's task:
+
+Ashok has been provided with a positive integer, let's call it "N." He is now on a mission to identify and count the specific digits within N that showcase a rather special characteristic – the ability to divide N perfectly, leaving no remainder behind. For instance, in the number 324, both 2 and 4 fit the bill since 246 can be evenly divided by 2 and 4 without any remainder.
+
+Note:- Evenly divides means whether N is divisible by a digit i.e. leaves a remainder 0 when divided.
+
+Input Format :
+A single line contains an integer N.
+
+Output Format :
+Print the Count of the number of digits in N which evenly divides N.
+
+Input :
+24
+
+
+Output :
+2
+
+
+Constraints :
+1 <= N <= 105*/
+
+#include <iostream>
+
+using namespace std;
+
+int main() {
+    int N;
+    cin >> N;
+
+    int count = 0;
+    int originalN = N; // Store the original value of N
+
+    while (N > 0) {
+        int digit = N % 10; // Extract the last digit of N
+        if (digit != 0 && originalN % digit == 0) {
+            count++;
+        }
+        N /= 10; // Move to the next digit
+    }
+
+    cout << count << endl;
+
+    return 0;
+}
+
+
+
