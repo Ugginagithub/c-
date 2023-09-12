@@ -19,3 +19,25 @@ whereabouts
 
 Output :
 CVCVCVC
+
+def generate_vowel_consonant_sequence(s):
+    result = []
+    last_char = ''
+    
+    for char in s:
+        if char in 'aeiou':
+            if last_char != 'V':
+                result.append('V')
+                last_char = 'V'
+        else:
+            if last_char != 'C':
+                result.append('C')
+                last_char = 'C'
+    
+    return ''.join(result)
+
+# Input
+input_string = input()
+# Output
+output_string = generate_vowel_consonant_sequence(input_string)
+print(output_string)
