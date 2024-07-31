@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+
+// Function to check if a number is prime
+bool isPrime(int num) {
+    if (num <= 1) return false;
+    if (num <= 3) return true;
+    if (num % 2 == 0 || num % 3 == 0) return false;
+    for (int i = 5; i * i <= num; i += 6) {
+        if (num % i == 0 || num % (i + 2) == 0) return false;
+    }
+    return true;
+}
+
+// Function to find the nearest prime number
+int nearestPrime(int n) {
+    if (n < 2) return 2; // The smallest prime number is 2
+
+    int lower = n;
+    int upper = n;
+
+    // Search for nearest prime numbers
+    while (true) {
+        if (isPrime(lower)) return lower;
+        if (isPrime(upper)) return upper;
+        lower--;
+        upper++;
+    }
+}
+
+int main() {
+    int number;
+    std::cout << "Enter a number: ";
+    std::cin >> number;
+
+    int nearest = nearestPrime(number);
+    std::cout << "The nearest prime number is: " << nearest << std::endl;
+
+    return 0;
+}
